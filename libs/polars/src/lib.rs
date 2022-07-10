@@ -8,7 +8,7 @@ use serde_json::{Result, Value};
 mod tests {
     use super::*;
     #[test]
-    fn it_works() {
+    fn test_raw_json_to_polars_df() {
         let basic_json = r#"{"symbol": "THI.TO","symbolId": 38738,"openQuantity": 100,"currentMarketValue": 6017,"currentPrice": 60.17,"averageEntryPrice": 60.23,"closedPnl": 0,"openPnl": -6,"totalCost": false,"isRealTime": "Individual","isUnderReorg": false}"#;
                 let file = Cursor::new(basic_json);
                 let df = JsonReader::new(file)
@@ -22,7 +22,7 @@ mod tests {
     }
 
     #[test]
-    fn json_deserialize() {
+    fn json_deserialize_no_type() {
         let basic_json = r#"{
             "positions": [
                   {
@@ -48,7 +48,7 @@ mod tests {
     }
 
     #[test]
-    fn parquet() {
+    fn test_read_parquet_file_to_polars_df() {
         let r = File::open("../../libs/polars/src/sample.parquet").unwrap();
         let reader = ParquetReader::new(r);
         let df = reader.finish().unwrap();
