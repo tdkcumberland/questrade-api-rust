@@ -1,0 +1,19 @@
+name: Questrade API
+version: "0.1"
+author: Timothy Cumberland <tdkcumberland@gmail.com>
+about: Questrade API wrapper the takes care of authentication and other APIs available to Questrade customers
+args:
+  - config:
+      short: c
+      long: config
+      value_name: FILE
+      help: sets a custom config file location
+      takes_value: true
+  - token_path:
+      help: sets a custom token_path json, else it will be homedir/.questrade.json
+      required: true
+      index: 1
+  - refresh-token:
+      help: supply a refresh token incase the existing one expired
+      required: false
+      index: 2

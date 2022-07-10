@@ -1,6 +1,8 @@
 [workspace]
 
 members = [
-    "api-wrapper",
-    "questtrade-api"
+    "bins/api-wrapper",
+    "libs/questtrade-api",
+    "libs/config-loader",
+    "libs/polars"
 ]
